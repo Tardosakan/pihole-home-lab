@@ -74,20 +74,3 @@ A few `i.ytimg.com` lookups took 3 seconds or timed out, which matches the weak 
 **High latency with the lid closed.** Pinging the laptop from my phone averaged about 49 ms with the lid open and 100–120 ms with it closed. Inside a home network this should be under 10 ms. The causes were a weak Wi-Fi signal (the laptop is far from the router) and Wi-Fi power saving. It's acceptable for one device, because Pi-hole caches answers. The proper fix is to move the laptop next to the router and use an Ethernet cable before adding more devices.
 
 **The laptop's address could change.** The router assigns the laptop's IP automatically, and I can't reserve it without router access. If the address changes, devices using Pi-hole lose DNS. For now I check it with `hostname -I` if anything stops working.
-
-## What I learned
-
-- How DNS resolution works, and how blocking at the DNS level works
-- Running a background service on Linux and managing it from a web dashboard
-- Measuring network latency with `ping` and reasoning about the causes
-- Testing DNS directly with `nslookup`
-- Why you should read install scripts before running them
-- How provider-managed equipment limits what you can configure, and how to work around it
-
-## Next steps
-
-- [ ] Move the laptop next to the router and connect it with Ethernet
-- [ ] Get router access from the provider and set Pi-hole as the DNS server for the whole network
-- [ ] Reserve a fixed IP address for the laptop
-- [ ] Add [Unbound](https://docs.pi-hole.net/guides/dns/unbound/) as my own recursive DNS resolver
-- [ ] Review the query log for which apps contact tracking domains most
